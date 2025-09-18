@@ -1,6 +1,15 @@
 #!/usr/bin/env ruby
 require_relative '../lib/giggler_lib'
 
+# Handle global flags
+if ARGV.include?('--version')
+  puts "Gigglercraft 0.1.0"
+  exit
+elsif ARGV.include?('--prefix')
+  puts Giggler.prefix
+  exit
+end
+
 cmd = ARGV[0]
 package = ARGV[1]
 
@@ -39,6 +48,9 @@ when "update"
   Giggler.update_registry
 when "count"
   puts Giggler.package_count
+when "help", nil
+  Giggler.help
 else
+  puts "Unknown command: #{cmd}"
   Giggler.help
 end
