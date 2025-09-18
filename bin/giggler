@@ -1,24 +1,44 @@
 #!/usr/bin/env ruby
-require_relative '../giggler_lib'
+require_relative '../lib/giggler_lib'
 
 cmd = ARGV[0]
 package = ARGV[1]
 
 case cmd
 when "install"
-  Gigglercraft.install(package)
+  if package
+    Giggler.install(package)
+  else
+    puts "Error: No package specified for install."
+    Giggler.help
+  end
 when "remove"
-  Gigglercraft.remove(package)
+  if package
+    Giggler.remove(package)
+  else
+    puts "Error: No package specified for remove."
+    Giggler.help
+  end
 when "list"
-  Gigglercraft.list
+  Giggler.list
 when "info"
-  Gigglercraft.info(package)
+  if package
+    Giggler.info(package)
+  else
+    puts "Error: No package specified for info."
+    Giggler.help
+  end
 when "search"
-  Gigglercraft.search(package)
+  if package
+    Giggler.search(package)
+  else
+    puts "Error: No search query provided."
+    Giggler.help
+  end
 when "update"
-  Gigglercraft.update_registry
+  Giggler.update_registry
 when "count"
-  puts Gigglercraft.package_count
+  puts Giggler.package_count
 else
-  Gigglercraft.help
+  Giggler.help
 end
