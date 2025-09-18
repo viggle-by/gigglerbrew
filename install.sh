@@ -11,7 +11,7 @@ fi
 echo "Installing Giggler to $GIGGLER_PREFIX"
 
 # Clone the repository
-git clone https://github.com/yourusername/gigglercraft.git "$GIGGLER_PREFIX"
+git clone https://github.com/viggle-by/gigglerbrew.git "$GIGGLER_PREFIX"
 
 echo "Giggler installed!"
 
